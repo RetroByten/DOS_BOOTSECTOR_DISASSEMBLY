@@ -1,0 +1,365 @@
+<HTML><BODY BGCOLOR=#ffffe0><FONT FACE=COURIER SIZE=3><STRONG><PRE>
+<A NAME="0000:7c00"></A>                                    ENTRY:                        ;XREF[2,0]:   Entry Point,<A HREF="#0000:7c33">0000:7c33</A>
+bootsector:0000:7c00    eb2c            JMP         <A HREF="#0000:7c2e">MAIN</A>                                    
+<A NAME="0000:7c02"></A>bootsector:0000:7c02    90              NOP                                                  
+<A NAME="0000:7c03"></A>                                    SYSTEM_ID[0]:                 ;XREF[2,2]:   <A HREF="#0000:7c5b">0000:7c5b</A>,<A HREF="#0000:7cfc">0000:7cfc</A>,<A HREF="#0000:7d5f">0000:7d5f</A>,<A HREF="#0000:7d64">0000:7d64</A>
+                                    SYSTEM_ID:                    
+bootsector:0000:7c03    49424d202...    char[8]     "IBM  2.0"                              
+<A NAME="0000:7c03"></A>   |_bootsector:0000:7c03    [0]             char        'I'                                     
+<A NAME="0000:7c04"></A>   |_bootsector:0000:7c04    [1]             char        'B'                                     
+<A NAME="0000:7c05"></A>   |_bootsector:0000:7c05    [2]             char        'M'                                     
+<A NAME="0000:7c06"></A>   |_bootsector:0000:7c06    [3]             char        ' '                                     
+<A NAME="0000:7c07"></A>   |_bootsector:0000:7c07    [4]             char        ' '                                     
+<A NAME="0000:7c08"></A>   |_bootsector:0000:7c08    [5]             char        '2'                                     
+<A NAME="0000:7c09"></A>   |_bootsector:0000:7c09    [6]             char        '.'                                     
+<A NAME="0000:7c0a"></A>   |_bootsector:0000:7c0a    [7]             char        '0'                                     
+<A NAME="0000:7c0b"></A>                                    BIOS_PARAMETER_BLOCK:         ;XREF[1,16]:  <A HREF="#0000:7cb2">0000:7cb2</A>,<A HREF="#0000:7c4b">0000:7c4b</A>,<A HREF="#0000:7c4f">0000:7c4f</A>,<A HREF="#0000:7c53">0000:7c53</A>
+                                                                  ;             <A HREF="#0000:7c57">0000:7c57</A>,<A HREF="#0000:7c5e">0000:7c5e</A>,<A HREF="#0000:7c64">0000:7c64</A>,<A HREF="#0000:7c70">0000:7c70</A>
+                                                                  ;             <A HREF="#0000:7c79">0000:7c79</A>,<A HREF="#0000:7c89">0000:7c89</A>,<A HREF="#0000:7c90">0000:7c90</A>,<A HREF="#0000:7c94">0000:7c94</A>
+                                                                  ;             <A HREF="#0000:7cad">0000:7cad</A>,<A HREF="#0000:7d4b">0000:7d4b</A>,<A HREF="#0000:7d51">0000:7d51</A>,<A HREF="#0000:7d57">0000:7d57</A>
+                                                                  ;             <A HREF="#0000:7d6d">0000:7d6d</A>
+bootsector:0000:7c0b    000208010...    STRUCT_B...                                        
+<A NAME="0000:7c0b"></A>   |_bootsector:0000:7c0b    BYTES_PER...    dw          200h                                    
+<A NAME="0000:7c0d"></A>   |_bootsector:0000:7c0d    SECTORS_P...    db          8h                                      
+<A NAME="0000:7c0e"></A>   |_bootsector:0000:7c0e    RESERVED_...    dw          1h                                      
+<A NAME="0000:7c10"></A>   |_bootsector:0000:7c10    FAT_COPY_CNT    db          2h                                      
+<A NAME="0000:7c11"></A>   |_bootsector:0000:7c11    ROOT_DIR_...    dw          200h                                    
+<A NAME="0000:7c13"></A>   |_bootsector:0000:7c13    DISK_SECT...    dw          7D81h                                   
+<A NAME="0000:7c15"></A>   |_bootsector:0000:7c15    FORMAT_ID       db          F8h                                     
+<A NAME="0000:7c16"></A>   |_bootsector:0000:7c16    SECTORS_P...    dw          Ch                                      
+<A NAME="0000:7c18"></A>   |_bootsector:0000:7c18    SECTORS_P...    dw          3Fh                                     
+<A NAME="0000:7c1a"></A>   |_bootsector:0000:7c1a    HEADS           dw          FFh                                     
+<A NAME="0000:7c1c"></A>   |_bootsector:0000:7c1c    SPECIAL_R...    dw          1h                                      
+<A NAME="0000:7c1e"></A>                                    DL_DISK:                      ;XREF[2,0]:   <A HREF="#0000:7ccc">0000:7ccc</A>,<A HREF="#0000:7d76">0000:7d76</A>
+                                    DX_STORE:                     
+bootsector:0000:7c1e    80              db          80h                                     
+<A NAME="0000:7c1f"></A>                                    DH_HEAD:                      ;XREF[1,0]:   <A HREF="#0000:7d5b">0000:7d5b</A>
+bootsector:0000:7c1f    00              db          0h                                      
+<A NAME="0000:7c20"></A>                                    DB_SEC_TO_READ:               ;XREF[1,0]:   <A HREF="#0000:7ca6">0000:7ca6</A>
+bootsector:0000:7c20    0a              db          Ah                                      
+<A NAME="0000:7c21"></A>                                    DISK_BASE_TABLE:              ;XREF[1,0]:   <A HREF="#0000:7c3b">0000:7c3b</A>
+bootsector:0000:7c21    df0225020...    STRUCT_D...                                        
+<A NAME="0000:7c21"></A>   |_bootsector:0000:7c21    STEP_RATE       db          DFh                                     
+<A NAME="0000:7c22"></A>   |_bootsector:0000:7c22    HEAD_LOAD       db          2h                                      
+<A NAME="0000:7c23"></A>   |_bootsector:0000:7c23    WAIT_TIME       db          25h                                     
+<A NAME="0000:7c24"></A>   |_bootsector:0000:7c24    DISK_BYTE...    db          2h                                      
+<A NAME="0000:7c25"></A>   |_bootsector:0000:7c25    LAST_SEC        db          9h                                      
+<A NAME="0000:7c26"></A>   |_bootsector:0000:7c26    GAP_LEN         db          2Ah                                     
+<A NAME="0000:7c27"></A>   |_bootsector:0000:7c27    DATA_LEN        db          FFh                                     
+<A NAME="0000:7c28"></A>   |_bootsector:0000:7c28    GAP_LEN2        db          50h                                     
+<A NAME="0000:7c29"></A>   |_bootsector:0000:7c29    DATA_VAL        db          F6h                                     
+<A NAME="0000:7c2a"></A>   |_bootsector:0000:7c2a    HEAD_SETTLE     db          Fh                                      
+<A NAME="0000:7c2b"></A>   |_bootsector:0000:7c2b    MOTOR_START     db          2h                                      
+<A NAME="0000:7c2c"></A>                                    BOOTSTRAP:                    ;XREF[1,0]:   <A HREF="#0000:7c77">0000:7c77</A>
+bootsector:0000:7c2c    cd19            INT         BOOT_STRAP_LOADER                       
+<A NAME="0000:7c2e"></A>                                    MAIN:                         ;XREF[1,0]:   <A HREF="#0000:7c00">0000:7c00</A>
+bootsector:0000:7c2e    fa              CLI                                                  
+<A NAME="0000:7c2f"></A>bootsector:0000:7c2f    33c0            XOR         AX,AX                                   
+<A NAME="0000:7c31"></A>bootsector:0000:7c31    8ed0            MOV         SS,AX                                   
+<A NAME="0000:7c33"></A>bootsector:0000:7c33    bc007c          MOV         SP,<A HREF="#0000:7c00">ENTRY</A>                                
+<A NAME="0000:7c36"></A>bootsector:0000:7c36    8ed8            MOV         DS,AX                                   
+<A NAME="0000:7c38"></A>bootsector:0000:7c38    a37a00          MOV         [INT_1E_SEGMENT],AX                     
+<A NAME="0000:7c3b"></A>bootsector:0000:7c3b    c7067800217c    MOV         word ptr [INT_1E_OFFSET],<A HREF="#0000:7c21">DISK_BASE_TABLE</A>
+<A NAME="0000:7c41"></A>bootsector:0000:7c41    fb              STI                                                  
+<A NAME="0000:7c42"></A>bootsector:0000:7c42    cd13            INT         BIOS_DISK_INT                           
+<A NAME="0000:7c44"></A>bootsector:0000:7c44    7303            JNC         <A HREF="#0000:7c49">DISK_RESET_SUCCESS</A>                      
+<A NAME="0000:7c46"></A>bootsector:0000:7c46    e99500          JMP         <A HREF="#0000:7cde">DISK_RESET_ERROR</A>                        
+<A NAME="0000:7c49"></A>                                    DISK_RESET_SUCCESS:           ;XREF[1,0]:   <A HREF="#0000:7c44">0000:7c44</A>
+bootsector:0000:7c49    0e              PUSH        CS                                      
+<A NAME="0000:7c4a"></A>bootsector:0000:7c4a    1f              POP         DS                                      
+<A NAME="0000:7c4b"></A>                                    CALCULATE_LAST_FAT_SECTOR:    
+bootsector:0000:7c4b    a0107c          MOV         AL,<A HREF="#0000:7c10">[BIOS_PARAMETER_BLOCK.FAT_COPY_CNT]</A>  
+<A NAME="0000:7c4e"></A>bootsector:0000:7c4e    98              CBW                                                  
+<A NAME="0000:7c4f"></A>bootsector:0000:7c4f    f726167c        MUL         <A HREF="#0000:7c16">word ptr [BIOS_PARAMETER_BLOCK.SECTOR...</A>
+<A NAME="0000:7c53"></A>bootsector:0000:7c53    03061c7c        ADD         AX,<A HREF="#0000:7c1c">word ptr [BIOS_PARAMETER_BLOCK.SPE...</A>
+<A NAME="0000:7c57"></A>bootsector:0000:7c57    03060e7c        ADD         AX,<A HREF="#0000:7c0e">word ptr [BIOS_PARAMETER_BLOCK.RES...</A>
+<A NAME="0000:7c5b"></A>bootsector:0000:7c5b    a3037c          MOV         <A HREF="#0000:7c03">[SYSTEM_ID[0]]</A>,AX                       ;= "IBM  2.0"
+<A NAME="0000:7c5e"></A>bootsector:0000:7c5e    a3137c          MOV         <A HREF="#0000:7c13">[BIOS_PARAMETER_...</A>,AX                  
+<A NAME="0000:7c61"></A>                                    CALCULATE_NUM_DIR_SECTORS:    
+bootsector:0000:7c61    b82000          MOV         AX,VOLUME_ID_LABEL_BYTES                
+<A NAME="0000:7c64"></A>bootsector:0000:7c64    f726117c        MUL         <A HREF="#0000:7c11">word ptr [BIOS_PARAMETER_BLOCK.ROOT_D...</A>
+<A NAME="0000:7c68"></A>bootsector:0000:7c68    05ff01          ADD         AX,CONST_SECTOR_BYTES-1                 
+<A NAME="0000:7c6b"></A>bootsector:0000:7c6b    bb0002          MOV         BX,CONST_SECTOR_BYTES                   
+<A NAME="0000:7c6e"></A>bootsector:0000:7c6e    f7f3            DIV         BX                                      
+<A NAME="0000:7c70"></A>                                    CALCULATE_LAST_DIR_SECTOR:    
+bootsector:0000:7c70    0106137c        ADD         <A HREF="#0000:7c13">word ptr [BIOS_P...</A>,AX                  
+<A NAME="0000:7c74"></A>                                    CHECK_IF_BOOTDISK_LABEL:      
+bootsector:0000:7c74    e87e00          CALL        <A HREF="#0000:7cf5">CHECK_IF_BOOTDISK</A>                       ;undefined CHECK_IF_BOOTDISK()
+<A NAME="0000:7c77"></A>bootsector:0000:7c77    72b3            JC          <A HREF="#0000:7c2c">BOOTSTRAP</A>                               
+<A NAME="0000:7c79"></A>                                    FOUND_BOOTDISK:               
+bootsector:0000:7c79    a1137c          MOV         AX,<A HREF="#0000:7c13">[BIOS_PARAMETER_BLOCK.DISK_SECTOR_...</A>
+<A NAME="0000:7c7c"></A>bootsector:0000:7c7c    a37e7d          MOV         <A HREF="#0000:7d7e">[LAST_DIR_SECTOR]</A>,AX                    
+<A NAME="0000:7c7f"></A>bootsector:0000:7c7f    b87000          MOV         AX,RAMBOOTSEG                           
+<A NAME="0000:7c82"></A>bootsector:0000:7c82    8ec0            MOV         ES,AX                                   
+<A NAME="0000:7c84"></A>bootsector:0000:7c84    8ed8            MOV         DS,AX                                   
+<A NAME="0000:7c86"></A>bootsector:0000:7c86    bb0000          MOV         BX,0x0                                  
+<A NAME="0000:7c89"></A>                                    LOAD_FILE_SECTORS:            ;XREF[1,0]:   <A HREF="#0000:7cb9">0000:7cb9</A>
+bootsector:0000:7c89    2ea1137c        MOV         AX,<A HREF="#0000:7c13">CS:[BIOS_PARAMETER_BLOCK.DISK_SECT...</A>
+<A NAME="0000:7c8d"></A>bootsector:0000:7c8d    e8b600          CALL        <A HREF="#0000:7d46">CALCULATE_CHS_OFFSET</A>                    ;undefined CALCULATE_CHS_OFFSET()
+<A NAME="0000:7c90"></A>bootsector:0000:7c90    2ea0187c        MOV         AL,<A HREF="#0000:7c18">CS:[BIOS_PARAMETER_BLOCK.SECTORS_P...</A>
+<A NAME="0000:7c94"></A>bootsector:0000:7c94    2e2a06157c      SUB         AL,<A HREF="#0000:7c15">byte ptr CS:[BIOS_PARAMETER_BLOCK....</A>
+<A NAME="0000:7c99"></A>bootsector:0000:7c99    fec0            INC         AL                                      
+<A NAME="0000:7c9b"></A>bootsector:0000:7c9b    32e4            XOR         AH,AH                                   
+<A NAME="0000:7c9d"></A>bootsector:0000:7c9d    50              PUSH        AX                                      
+<A NAME="0000:7c9e"></A>bootsector:0000:7c9e    b402            MOV         AH,SVC_DISK_READ_SECTOR                 
+<A NAME="0000:7ca0"></A>bootsector:0000:7ca0    e8c100          CALL        <A HREF="#0000:7d64">READ_SECTORS</A>                            ;undefined READ_SECTORS()
+<A NAME="0000:7ca3"></A>bootsector:0000:7ca3    58              POP         AX                                      
+<A NAME="0000:7ca4"></A>bootsector:0000:7ca4    7238            JC          <A HREF="#0000:7cde">DISK_RESET_ERROR</A>                        
+<A NAME="0000:7ca6"></A>bootsector:0000:7ca6    2e2806207c      SUB         <A HREF="#0000:7c20">byte ptr CS:[DB_SEC_TO_READ]</A>,AL         ;= Ah
+<A NAME="0000:7cab"></A>bootsector:0000:7cab    760e            JBE         <A HREF="#0000:7cbb">CHECK_FLOPPY</A>                            
+<A NAME="0000:7cad"></A>bootsector:0000:7cad    2e0106137c      ADD         <A HREF="#0000:7c13">word ptr CS:[BIO...</A>,AX                  
+<A NAME="0000:7cb2"></A>bootsector:0000:7cb2    2ef7260b7c      MUL         <A HREF="#0000:7c0b">word ptr CS:[BIOS_PARAMETER_BLOCK]</A>      
+<A NAME="0000:7cb7"></A>bootsector:0000:7cb7    03d8            ADD         BX,AX                                   
+<A NAME="0000:7cb9"></A>bootsector:0000:7cb9    ebce            JMP         <A HREF="#0000:7c89">LOAD_FILE_SECTORS</A>                       
+<A NAME="0000:7cbb"></A>                                    CHECK_FLOPPY:                 ;XREF[1,0]:   <A HREF="#0000:7cab">0000:7cab</A>
+bootsector:0000:7cbb    0e              PUSH        CS                                      
+<A NAME="0000:7cbc"></A>bootsector:0000:7cbc    1f              POP         DS                                      
+<A NAME="0000:7cbd"></A>bootsector:0000:7cbd    cd11            INT         BIOS_EQP_INT                            
+<A NAME="0000:7cbf"></A>bootsector:0000:7cbf    d0c0            ROL         AL,0x1                                  
+<A NAME="0000:7cc1"></A>bootsector:0000:7cc1    d0c0            ROL         AL,0x1                                  
+<A NAME="0000:7cc3"></A>bootsector:0000:7cc3    250300          AND         AX,0x3                                  
+<A NAME="0000:7cc6"></A>bootsector:0000:7cc6    7501            JNZ         <A HREF="#0000:7cc9">CHECK_FIXED_DISK</A>                        
+<A NAME="0000:7cc8"></A>bootsector:0000:7cc8    40              INC         AX                                      
+<A NAME="0000:7cc9"></A>                                    CHECK_FIXED_DISK:             ;XREF[1,0]:   <A HREF="#0000:7cc6">0000:7cc6</A>
+bootsector:0000:7cc9    40              INC         AX                                      
+<A NAME="0000:7cca"></A>bootsector:0000:7cca    8bc8            MOV         CX,AX                                   
+<A NAME="0000:7ccc"></A>bootsector:0000:7ccc    f6061e7c80      TEST        <A HREF="#0000:7c1e">byte ptr [DL_DISK]</A>,0x80                 ;= 80h
+<A NAME="0000:7cd1"></A>bootsector:0000:7cd1    7502            JNZ         <A HREF="#0000:7cd5">BOOT_DOS</A>                                
+<A NAME="0000:7cd3"></A>bootsector:0000:7cd3    33c0            XOR         AX,AX                                   
+<A NAME="0000:7cd5"></A>                                    BOOT_DOS:                     ;XREF[1,0]:   <A HREF="#0000:7cd1">0000:7cd1</A>
+bootsector:0000:7cd5    8b1e7e7d        MOV         BX,<A HREF="#0000:7d7e">word ptr [LAST_DIR_SECTOR]</A>           
+<A NAME="0000:7cd9"></A>bootsector:0000:7cd9    ea00007000      JMPF        IBMBIO_ENTRY                            
+<A NAME="0000:7cde"></A>                                    DISK_RESET_ERROR:             ;XREF[2,0]:   <A HREF="#0000:7c46">0000:7c46</A>,<A HREF="#0000:7ca4">0000:7ca4</A>
+bootsector:0000:7cde    bec97d          MOV         SI,<A HREF="#0000:7dc9">MSG_DISK_BOOT_FAIL</A>                   ;= "\r\nDisk Boot failure\r\n"
+<A NAME="0000:7ce1"></A>bootsector:0000:7ce1    e80200          CALL        <A HREF="#0000:7ce6">PRINT_ERROR</A>                             ;undefined PRINT_ERROR()
+<A NAME="0000:7ce4"></A>                                    DISK_RESET_ERROR_HALT:        ;XREF[1,0]:   <A HREF="#0000:7ce4">0000:7ce4</A>
+bootsector:0000:7ce4    ebfe            JMP         <A HREF="#0000:7ce4">DISK_RESET_ERROR_HALT</A>                   
+<A NAME="0000:7ce6"></A>                                    ;************************************************************************************************
+                                    ;*                                           FUNCTION                                           *
+                                    ;************************************************************************************************
+                                    ;undefined PRINT_ERROR()
+                                                                  ;XREF[3,0]:   <A HREF="#0000:7ce1">0000:7ce1</A>,<A HREF="#0000:7cf3">0000:7cf3</A>,<A HREF="#0000:7d3d">0000:7d3d</A>
+bootsector:0000:7ce6    2eac            LODSB       CS:SI                                   
+<A NAME="0000:7ce8"></A>bootsector:0000:7ce8    247f            AND         AL,0x7f                                 
+<A NAME="0000:7cea"></A>bootsector:0000:7cea    744d            JZ          <A HREF="#0000:7d39">SHARED_RETURN</A>                           
+<A NAME="0000:7cec"></A>bootsector:0000:7cec    b40e            MOV         AH,SVC_PRINT_TTY                        
+<A NAME="0000:7cee"></A>bootsector:0000:7cee    bb0700          MOV         BX,0x7                                  
+<A NAME="0000:7cf1"></A>bootsector:0000:7cf1    cd10            INT         BIOS_VIDEO_INT                          
+<A NAME="0000:7cf3"></A>bootsector:0000:7cf3    ebf1            JMP         <A HREF="#0000:7ce6">PRINT_ERROR</A>                             
+<A NAME="0000:7cf5"></A>                                    ;************************************************************************************************
+                                    ;*                                           FUNCTION                                           *
+                                    ;************************************************************************************************
+                                    ;undefined CHECK_IF_BOOTDISK()
+                                                                  ;XREF[1,0]:   <A HREF="#0000:7c74">0000:7c74</A>
+bootsector:0000:7cf5    b85000          MOV         AX,RAMDIRBUFFER                         
+<A NAME="0000:7cf8"></A>bootsector:0000:7cf8    8ec0            MOV         ES,AX                                   
+<A NAME="0000:7cfa"></A>bootsector:0000:7cfa    0e              PUSH        CS                                      
+<A NAME="0000:7cfb"></A>bootsector:0000:7cfb    1f              POP         DS                                      
+<A NAME="0000:7cfc"></A>bootsector:0000:7cfc    2ea1037c        MOV         AX,<A HREF="#0000:7c03">CS:[SYSTEM_ID]</A>                       ;= "IBM  2.0"
+<A NAME="0000:7d00"></A>bootsector:0000:7d00    e84300          CALL        <A HREF="#0000:7d46">CALCULATE_CHS_OFFSET</A>                    ;undefined CALCULATE_CHS_OFFSET()
+<A NAME="0000:7d03"></A>bootsector:0000:7d03    bb0000          MOV         BX,0x0                                  
+<A NAME="0000:7d06"></A>bootsector:0000:7d06    b80102          MOV         AX,SVC_READ_SECTOR_COUNT1               
+<A NAME="0000:7d09"></A>bootsector:0000:7d09    e85800          CALL        <A HREF="#0000:7d64">READ_SECTORS</A>                            ;undefined READ_SECTORS()
+<A NAME="0000:7d0c"></A>bootsector:0000:7d0c    722c            JC          <A HREF="#0000:7d3a">NON_SYS_DISK_OR_DISK_ERR</A>                
+<A NAME="0000:7d0e"></A>bootsector:0000:7d0e    33ff            XOR         DI,DI                                   
+<A NAME="0000:7d10"></A>bootsector:0000:7d10    b90b00          MOV         CX,0xb                                  
+<A NAME="0000:7d13"></A>                                    SET_LOWER_CASE:               ;XREF[1,0]:   <A HREF="#0000:7d1d">0000:7d1d</A>
+                                                                  ; FWD[2,0]:   0000:0500,0000:0501
+bootsector:0000:7d13    26800d20        OR          byte ptr ES:[DI]=>DAT_0000_0500,0x20    
+<A NAME="0000:7d17"></A>                                                                  ; FWD[2,0]:   0000:0520,0000:0521
+bootsector:0000:7d17    26804d2020      OR          byte ptr ES:[DI ...,0x20                
+<A NAME="0000:7d1c"></A>bootsector:0000:7d1c    47              INC         DI                                      
+<A NAME="0000:7d1d"></A>bootsector:0000:7d1d    e2f4            LOOP        <A HREF="#0000:7d13">SET_LOWER_CASE</A>                          
+<A NAME="0000:7d1f"></A>                                    CHECK_FILE_NAMES:             
+bootsector:0000:7d1f    33ff            XOR         DI,DI                                   
+<A NAME="0000:7d21"></A>bootsector:0000:7d21    bedf7d          MOV         SI,<A HREF="#0000:7ddf">IBMBIO_FILENAME</A>                      ;= "ibmbio  com0"
+<A NAME="0000:7d24"></A>bootsector:0000:7d24    b90b00          MOV         CX,LENGTH_FILE_NAME                     
+<A NAME="0000:7d27"></A>bootsector:0000:7d27    fc              CLD                                                  
+<A NAME="0000:7d28"></A>bootsector:0000:7d28    f3a6            CMPSB.REPE  ES:DI=>DAT_0000_0500,SI                 
+<A NAME="0000:7d2a"></A>bootsector:0000:7d2a    750e            JNZ         <A HREF="#0000:7d3a">NON_SYS_DISK_OR_DISK_ERR</A>                
+<A NAME="0000:7d2c"></A>bootsector:0000:7d2c    bf2000          MOV         DI,0x20                                 
+<A NAME="0000:7d2f"></A>bootsector:0000:7d2f    beeb7d          MOV         SI,<A HREF="#0000:7deb">IBMDOS_FILENAME</A>                      ;= "ibmdos  com0"
+<A NAME="0000:7d32"></A>bootsector:0000:7d32    b90b00          MOV         CX,LENGTH_FILE_NAME                     
+<A NAME="0000:7d35"></A>bootsector:0000:7d35    f3a6            CMPSB.REPE  ES:DI=>DAT_0000_0520,SI                 
+<A NAME="0000:7d37"></A>bootsector:0000:7d37    7501            JNZ         <A HREF="#0000:7d3a">NON_SYS_DISK_OR_DISK_ERR</A>                
+<A NAME="0000:7d39"></A>                                    SHARED_RETURN:                ;XREF[1,0]:   <A HREF="#0000:7cea">0000:7cea</A>
+bootsector:0000:7d39    c3              RET                                                  
+<A NAME="0000:7d3a"></A>                                    NON_SYS_DISK_OR_DISK_ERR:     ;XREF[3,0]:   <A HREF="#0000:7d0c">0000:7d0c</A>,<A HREF="#0000:7d2a">0000:7d2a</A>,<A HREF="#0000:7d37">0000:7d37</A>
+bootsector:0000:7d3a    be807d          MOV         SI,<A HREF="#0000:7d80">MSG_NON_SYS_DISK</A>                     ;= "\r\nNon-System disk or disk error...
+<A NAME="0000:7d3d"></A>bootsector:0000:7d3d    e8a6ff          CALL        <A HREF="#0000:7ce6">PRINT_ERROR</A>                             ;undefined PRINT_ERROR()
+<A NAME="0000:7d40"></A>bootsector:0000:7d40    b400            MOV         AH,SVC_READ_KEYBOARD                    
+<A NAME="0000:7d42"></A>bootsector:0000:7d42    cd16            INT         BIOS_KEYBOARD_INT                       
+<A NAME="0000:7d44"></A>bootsector:0000:7d44    f9              STC                                                  
+<A NAME="0000:7d45"></A>bootsector:0000:7d45    c3              RET                                                  
+<A NAME="0000:7d46"></A>                                    ;************************************************************************************************
+                                    ;*                                           FUNCTION                                           *
+                                    ;************************************************************************************************
+                                    ;undefined CALCULATE_CHS_OFFSET()
+                                                                  ;XREF[2,0]:   <A HREF="#0000:7c8d">0000:7c8d</A>,<A HREF="#0000:7d00">0000:7d00</A>
+bootsector:0000:7d46    1e              PUSH        DS                                      
+<A NAME="0000:7d47"></A>bootsector:0000:7d47    0e              PUSH        CS                                      
+<A NAME="0000:7d48"></A>bootsector:0000:7d48    1f              POP         DS                                      
+<A NAME="0000:7d49"></A>bootsector:0000:7d49    33d2            XOR         DX,DX                                   
+<A NAME="0000:7d4b"></A>bootsector:0000:7d4b    f736187c        DIV         <A HREF="#0000:7c18">word ptr [BIOS_PARAMETER_BLOCK.SECTOR...</A>
+<A NAME="0000:7d4f"></A>bootsector:0000:7d4f    fec2            INC         DL                                      
+<A NAME="0000:7d51"></A>bootsector:0000:7d51    8816157c        MOV         <A HREF="#0000:7c15">byte ptr [BIOS_P...</A>,DL                  
+<A NAME="0000:7d55"></A>bootsector:0000:7d55    33d2            XOR         DX,DX                                   
+<A NAME="0000:7d57"></A>bootsector:0000:7d57    f7361a7c        DIV         <A HREF="#0000:7c1a">word ptr [BIOS_PARAMETER_BLOCK.HEADS]</A>   
+<A NAME="0000:7d5b"></A>bootsector:0000:7d5b    88161f7c        MOV         <A HREF="#0000:7c1f">byte ptr [DH_HEAD]</A>,DL                   
+<A NAME="0000:7d5f"></A>bootsector:0000:7d5f    a3087c          MOV         <A HREF="#0000:7c08">[SYSTEM_ID[5]]</A>,AX                       ;= "2.0"
+<A NAME="0000:7d62"></A>bootsector:0000:7d62    1f              POP         DS                                      
+<A NAME="0000:7d63"></A>bootsector:0000:7d63    c3              RET                                                  
+<A NAME="0000:7d64"></A>                                    ;************************************************************************************************
+                                    ;*                                           FUNCTION                                           *
+                                    ;************************************************************************************************
+                                    ;undefined READ_SECTORS()
+                                                                  ;XREF[2,0]:   <A HREF="#0000:7ca0">0000:7ca0</A>,<A HREF="#0000:7d09">0000:7d09</A>
+bootsector:0000:7d64    2e8b16087c      MOV         DX,<A HREF="#0000:7c08">word ptr CS:[SYSTEM_ID[5]]</A>           ;= "2.0"
+<A NAME="0000:7d69"></A>bootsector:0000:7d69    b106            MOV         CL,0x6                                  
+<A NAME="0000:7d6b"></A>bootsector:0000:7d6b    d2e6            SHL         DH,CL                                   
+<A NAME="0000:7d6d"></A>bootsector:0000:7d6d    2e0a36157c      OR          DH,<A HREF="#0000:7c15">byte ptr CS:[BIOS_PARAMETER_BLOCK....</A>
+<A NAME="0000:7d72"></A>bootsector:0000:7d72    8bca            MOV         CX,DX                                   
+<A NAME="0000:7d74"></A>bootsector:0000:7d74    86e9            XCHG        CL,CH                                   
+<A NAME="0000:7d76"></A>bootsector:0000:7d76    2e8b161e7c      MOV         DX,<A HREF="#0000:7c1e">word ptr CS:[DX_STORE]</A>               ;= 80h
+<A NAME="0000:7d7b"></A>bootsector:0000:7d7b    cd13            INT         BIOS_DISK_INT                           
+<A NAME="0000:7d7d"></A>bootsector:0000:7d7d    c3              RET                                                  
+<A NAME="0000:7d7e"></A>                                    LAST_DIR_SECTOR:              ;XREF[2,0]:   <A HREF="#0000:7c7c">0000:7c7c</A>,<A HREF="#0000:7cd5">0000:7cd5</A>
+bootsector:0000:7d7e    0000            dw          0h                                      
+<A NAME="0000:7d80"></A>                                    MSG_NON_SYS_DISK:             ;XREF[1,0]:   <A HREF="#0000:7d3a">0000:7d3a</A>
+bootsector:0000:7d80    0d0a4e6f6...    char[73]    "\r\nNon-System disk or disk error\r\...
+<A NAME="0000:7d80"></A>   |_bootsector:0000:7d80    [0]             char        '\r'                                    
+<A NAME="0000:7d81"></A>   |_bootsector:0000:7d81    [1]             char        '\n'                                    
+<A NAME="0000:7d82"></A>   |_bootsector:0000:7d82    [2]             char        'N'                                     
+<A NAME="0000:7d83"></A>   |_bootsector:0000:7d83    [3]             char        'o'                                     
+<A NAME="0000:7d84"></A>   |_bootsector:0000:7d84    [4]             char        'n'                                     
+<A NAME="0000:7d85"></A>   |_bootsector:0000:7d85    [5]             char        '-'                                     
+<A NAME="0000:7d86"></A>   |_bootsector:0000:7d86    [6]             char        'S'                                     
+<A NAME="0000:7d87"></A>   |_bootsector:0000:7d87    [7]             char        'y'                                     
+<A NAME="0000:7d88"></A>   |_bootsector:0000:7d88    [8]             char        's'                                     
+<A NAME="0000:7d89"></A>   |_bootsector:0000:7d89    [9]             char        't'                                     
+<A NAME="0000:7d8a"></A>   |_bootsector:0000:7d8a    [10]            char        'e'                                     
+<A NAME="0000:7d8b"></A>   |_bootsector:0000:7d8b    [11]            char        'm'                                     
+<A NAME="0000:7d8c"></A>   |_bootsector:0000:7d8c    [12]            char        ' '                                     
+<A NAME="0000:7d8d"></A>   |_bootsector:0000:7d8d    [13]            char        'd'                                     
+<A NAME="0000:7d8e"></A>   |_bootsector:0000:7d8e    [14]            char        'i'                                     
+<A NAME="0000:7d8f"></A>   |_bootsector:0000:7d8f    [15]            char        's'                                     
+<A NAME="0000:7d90"></A>   |_bootsector:0000:7d90    [16]            char        'k'                                     
+<A NAME="0000:7d91"></A>   |_bootsector:0000:7d91    [17]            char        ' '                                     
+<A NAME="0000:7d92"></A>   |_bootsector:0000:7d92    [18]            char        'o'                                     
+<A NAME="0000:7d93"></A>   |_bootsector:0000:7d93    [19]            char        'r'                                     
+<A NAME="0000:7d94"></A>   |_bootsector:0000:7d94    [20]            char        ' '                                     
+<A NAME="0000:7d95"></A>   |_bootsector:0000:7d95    [21]            char        'd'                                     
+<A NAME="0000:7d96"></A>   |_bootsector:0000:7d96    [22]            char        'i'                                     
+<A NAME="0000:7d97"></A>   |_bootsector:0000:7d97    [23]            char        's'                                     
+<A NAME="0000:7d98"></A>   |_bootsector:0000:7d98    [24]            char        'k'                                     
+<A NAME="0000:7d99"></A>   |_bootsector:0000:7d99    [25]            char        ' '                                     
+<A NAME="0000:7d9a"></A>   |_bootsector:0000:7d9a    [26]            char        'e'                                     
+<A NAME="0000:7d9b"></A>   |_bootsector:0000:7d9b    [27]            char        'r'                                     
+<A NAME="0000:7d9c"></A>   |_bootsector:0000:7d9c    [28]            char        'r'                                     
+<A NAME="0000:7d9d"></A>   |_bootsector:0000:7d9d    [29]            char        'o'                                     
+<A NAME="0000:7d9e"></A>   |_bootsector:0000:7d9e    [30]            char        'r'                                     
+<A NAME="0000:7d9f"></A>   |_bootsector:0000:7d9f    [31]            char        '\r'                                    
+<A NAME="0000:7da0"></A>   |_bootsector:0000:7da0    [32]            char        '\n'                                    
+<A NAME="0000:7da1"></A>   |_bootsector:0000:7da1    [33]            char        'R'                                     
+<A NAME="0000:7da2"></A>   |_bootsector:0000:7da2    [34]            char        'e'                                     
+<A NAME="0000:7da3"></A>   |_bootsector:0000:7da3    [35]            char        'p'                                     
+<A NAME="0000:7da4"></A>   |_bootsector:0000:7da4    [36]            char        'l'                                     
+<A NAME="0000:7da5"></A>   |_bootsector:0000:7da5    [37]            char        'a'                                     
+<A NAME="0000:7da6"></A>   |_bootsector:0000:7da6    [38]            char        'c'                                     
+<A NAME="0000:7da7"></A>   |_bootsector:0000:7da7    [39]            char        'e'                                     
+<A NAME="0000:7da8"></A>   |_bootsector:0000:7da8    [40]            char        ' '                                     
+<A NAME="0000:7da9"></A>   |_bootsector:0000:7da9    [41]            char        'a'                                     
+<A NAME="0000:7daa"></A>   |_bootsector:0000:7daa    [42]            char        'n'                                     
+<A NAME="0000:7dab"></A>   |_bootsector:0000:7dab    [43]            char        'd'                                     
+<A NAME="0000:7dac"></A>   |_bootsector:0000:7dac    [44]            char        ' '                                     
+<A NAME="0000:7dad"></A>   |_bootsector:0000:7dad    [45]            char        's'                                     
+<A NAME="0000:7dae"></A>   |_bootsector:0000:7dae    [46]            char        't'                                     
+<A NAME="0000:7daf"></A>   |_bootsector:0000:7daf    [47]            char        'r'                                     
+<A NAME="0000:7db0"></A>   |_bootsector:0000:7db0    [48]            char        'i'                                     
+<A NAME="0000:7db1"></A>   |_bootsector:0000:7db1    [49]            char        'k'                                     
+<A NAME="0000:7db2"></A>   |_bootsector:0000:7db2    [50]            char        'e'                                     
+<A NAME="0000:7db3"></A>   |_bootsector:0000:7db3    [51]            char        ' '                                     
+<A NAME="0000:7db4"></A>   |_bootsector:0000:7db4    [52]            char        'a'                                     
+<A NAME="0000:7db5"></A>   |_bootsector:0000:7db5    [53]            char        'n'                                     
+<A NAME="0000:7db6"></A>   |_bootsector:0000:7db6    [54]            char        'y'                                     
+<A NAME="0000:7db7"></A>   |_bootsector:0000:7db7    [55]            char        ' '                                     
+<A NAME="0000:7db8"></A>   |_bootsector:0000:7db8    [56]            char        'k'                                     
+<A NAME="0000:7db9"></A>   |_bootsector:0000:7db9    [57]            char        'e'                                     
+<A NAME="0000:7dba"></A>   |_bootsector:0000:7dba    [58]            char        'y'                                     
+<A NAME="0000:7dbb"></A>   |_bootsector:0000:7dbb    [59]            char        ' '                                     
+<A NAME="0000:7dbc"></A>   |_bootsector:0000:7dbc    [60]            char        'w'                                     
+<A NAME="0000:7dbd"></A>   |_bootsector:0000:7dbd    [61]            char        'h'                                     
+<A NAME="0000:7dbe"></A>   |_bootsector:0000:7dbe    [62]            char        'e'                                     
+<A NAME="0000:7dbf"></A>   |_bootsector:0000:7dbf    [63]            char        'n'                                     
+<A NAME="0000:7dc0"></A>   |_bootsector:0000:7dc0    [64]            char        ' '                                     
+<A NAME="0000:7dc1"></A>   |_bootsector:0000:7dc1    [65]            char        'r'                                     
+<A NAME="0000:7dc2"></A>   |_bootsector:0000:7dc2    [66]            char        'e'                                     
+<A NAME="0000:7dc3"></A>   |_bootsector:0000:7dc3    [67]            char        'a'                                     
+<A NAME="0000:7dc4"></A>   |_bootsector:0000:7dc4    [68]            char        'd'                                     
+<A NAME="0000:7dc5"></A>   |_bootsector:0000:7dc5    [69]            char        'y'                                     
+<A NAME="0000:7dc6"></A>   |_bootsector:0000:7dc6    [70]            char        '\r'                                    
+<A NAME="0000:7dc7"></A>   |_bootsector:0000:7dc7    [71]            char        '\n'                                    
+<A NAME="0000:7dc8"></A>   |_bootsector:0000:7dc8    [72]            char        '\0'                                    
+<A NAME="0000:7dc9"></A>                                    MSG_DISK_BOOT_FAIL:           ;XREF[1,0]:   <A HREF="#0000:7cde">0000:7cde</A>
+bootsector:0000:7dc9    0d0a44697...    char[22]    "\r\nDisk Boot failure\r\n"             
+<A NAME="0000:7dc9"></A>   |_bootsector:0000:7dc9    [0]             char        '\r'                                    
+<A NAME="0000:7dca"></A>   |_bootsector:0000:7dca    [1]             char        '\n'                                    
+<A NAME="0000:7dcb"></A>   |_bootsector:0000:7dcb    [2]             char        'D'                                     
+<A NAME="0000:7dcc"></A>   |_bootsector:0000:7dcc    [3]             char        'i'                                     
+<A NAME="0000:7dcd"></A>   |_bootsector:0000:7dcd    [4]             char        's'                                     
+<A NAME="0000:7dce"></A>   |_bootsector:0000:7dce    [5]             char        'k'                                     
+<A NAME="0000:7dcf"></A>   |_bootsector:0000:7dcf    [6]             char        ' '                                     
+<A NAME="0000:7dd0"></A>   |_bootsector:0000:7dd0    [7]             char        'B'                                     
+<A NAME="0000:7dd1"></A>   |_bootsector:0000:7dd1    [8]             char        'o'                                     
+<A NAME="0000:7dd2"></A>   |_bootsector:0000:7dd2    [9]             char        'o'                                     
+<A NAME="0000:7dd3"></A>   |_bootsector:0000:7dd3    [10]            char        't'                                     
+<A NAME="0000:7dd4"></A>   |_bootsector:0000:7dd4    [11]            char        ' '                                     
+<A NAME="0000:7dd5"></A>   |_bootsector:0000:7dd5    [12]            char        'f'                                     
+<A NAME="0000:7dd6"></A>   |_bootsector:0000:7dd6    [13]            char        'a'                                     
+<A NAME="0000:7dd7"></A>   |_bootsector:0000:7dd7    [14]            char        'i'                                     
+<A NAME="0000:7dd8"></A>   |_bootsector:0000:7dd8    [15]            char        'l'                                     
+<A NAME="0000:7dd9"></A>   |_bootsector:0000:7dd9    [16]            char        'u'                                     
+<A NAME="0000:7dda"></A>   |_bootsector:0000:7dda    [17]            char        'r'                                     
+<A NAME="0000:7ddb"></A>   |_bootsector:0000:7ddb    [18]            char        'e'                                     
+<A NAME="0000:7ddc"></A>   |_bootsector:0000:7ddc    [19]            char        '\r'                                    
+<A NAME="0000:7ddd"></A>   |_bootsector:0000:7ddd    [20]            char        '\n'                                    
+<A NAME="0000:7dde"></A>   |_bootsector:0000:7dde    [21]            char        '\0'                                    
+<A NAME="0000:7ddf"></A>                                    IBMBIO_FILENAME:              ;XREF[1,0]:   <A HREF="#0000:7d21">0000:7d21</A>
+bootsector:0000:7ddf    69626d626...    char[12]    "ibmbio  com0"                          
+<A NAME="0000:7ddf"></A>   |_bootsector:0000:7ddf    [0]             char        'i'                                     
+<A NAME="0000:7de0"></A>   |_bootsector:0000:7de0    [1]             char        'b'                                     
+<A NAME="0000:7de1"></A>   |_bootsector:0000:7de1    [2]             char        'm'                                     
+<A NAME="0000:7de2"></A>   |_bootsector:0000:7de2    [3]             char        'b'                                     
+<A NAME="0000:7de3"></A>   |_bootsector:0000:7de3    [4]             char        'i'                                     
+<A NAME="0000:7de4"></A>   |_bootsector:0000:7de4    [5]             char        'o'                                     
+<A NAME="0000:7de5"></A>   |_bootsector:0000:7de5    [6]             char        ' '                                     
+<A NAME="0000:7de6"></A>   |_bootsector:0000:7de6    [7]             char        ' '                                     
+<A NAME="0000:7de7"></A>   |_bootsector:0000:7de7    [8]             char        'c'                                     
+<A NAME="0000:7de8"></A>   |_bootsector:0000:7de8    [9]             char        'o'                                     
+<A NAME="0000:7de9"></A>   |_bootsector:0000:7de9    [10]            char        'm'                                     
+<A NAME="0000:7dea"></A>   |_bootsector:0000:7dea    [11]            char        '0'                                     
+<A NAME="0000:7deb"></A>                                    IBMDOS_FILENAME:              ;XREF[1,0]:   <A HREF="#0000:7d2f">0000:7d2f</A>
+bootsector:0000:7deb    69626d646...    char[12]    "ibmdos  com0"                          
+<A NAME="0000:7deb"></A>   |_bootsector:0000:7deb    [0]             char        'i'                                     
+<A NAME="0000:7dec"></A>   |_bootsector:0000:7dec    [1]             char        'b'                                     
+<A NAME="0000:7ded"></A>   |_bootsector:0000:7ded    [2]             char        'm'                                     
+<A NAME="0000:7dee"></A>   |_bootsector:0000:7dee    [3]             char        'd'                                     
+<A NAME="0000:7def"></A>   |_bootsector:0000:7def    [4]             char        'o'                                     
+<A NAME="0000:7df0"></A>   |_bootsector:0000:7df0    [5]             char        's'                                     
+<A NAME="0000:7df1"></A>   |_bootsector:0000:7df1    [6]             char        ' '                                     
+<A NAME="0000:7df2"></A>   |_bootsector:0000:7df2    [7]             char        ' '                                     
+<A NAME="0000:7df3"></A>   |_bootsector:0000:7df3    [8]             char        'c'                                     
+<A NAME="0000:7df4"></A>   |_bootsector:0000:7df4    [9]             char        'o'                                     
+<A NAME="0000:7df5"></A>   |_bootsector:0000:7df5    [10]            char        'm'                                     
+<A NAME="0000:7df6"></A>   |_bootsector:0000:7df6    [11]            char        '0'                                     
+<A NAME="0000:7df7"></A>                                    PADDING:                      
+bootsector:0000:7df7    00              ??          00h                                     
+<A NAME="0000:7df8"></A>bootsector:0000:7df8    00              ??          00h                                     
+<A NAME="0000:7df9"></A>bootsector:0000:7df9    00              ??          00h                                     
+<A NAME="0000:7dfa"></A>bootsector:0000:7dfa    00              ??          00h                                     
+<A NAME="0000:7dfb"></A>bootsector:0000:7dfb    00              ??          00h                                     
+<A NAME="0000:7dfc"></A>bootsector:0000:7dfc    00              ??          00h                                     
+<A NAME="0000:7dfd"></A>bootsector:0000:7dfd    00              ??          00h                                     
+<A NAME="0000:7dfe"></A>                                    SIGNATURE:                    
+bootsector:0000:7dfe    55aa            dw          AA55h                                   
+</PRE></STRONG></FONT></BODY></HTML>
